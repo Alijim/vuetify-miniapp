@@ -45,40 +45,100 @@
     </v-app-bar>
 
     <v-main>
-      <v-card
-        class="mx-auto my-12"
-        max-width="374"
-      >
-        <v-input >
-            <v-text-field
-            label="Username"
-            class="my-4"
-          ></v-text-field>
-        </v-input>
-        <v-input>
-          <v-text-field
-          label="Password"
-          ></v-text-field>
-        </v-input>
-         <v-card-actions>
-            <v-btn
-              color="deep-purple lighten-2"
-              text
-              @click="reserve"
-            >
-              Login
-            </v-btn>
-               <v-btn
-              color="deep-purple lighten-2"
-              text
-              @click="reserve"
-            >
-              Create
-            </v-btn>
-        </v-card-actions>
-      </v-card>
-  
+        <v-card
+    class="mx-auto"
+    max-width="400"
+  >
+    <v-list-item two-line>
+      <v-list-item-content>
+        <v-list-item-title class="headline">
+          San Francisco
+        </v-list-item-title>
+        <v-list-item-subtitle>Mon, 12:30 PM, Mostly sunny</v-list-item-subtitle>
+      </v-list-item-content>
+    </v-list-item>
 
+    <v-card-text>
+      <v-row align="center">
+        <v-col
+          class="display-3"
+          cols="6"
+        >
+          23&deg;C
+        </v-col>
+        <v-col cols="6">
+          <v-img
+            src="https://cdn.vuetifyjs.com/images/cards/sun.png"
+            alt="Sunny image"
+            width="92"
+          ></v-img>
+        </v-col>
+      </v-row>
+    </v-card-text>
+
+    <v-list-item>
+      <v-list-item-icon>
+        <v-icon>mdi-send</v-icon>
+      </v-list-item-icon>
+      <v-list-item-subtitle>23 km/h</v-list-item-subtitle>
+    </v-list-item>
+
+    <v-list-item>
+      <v-list-item-icon>
+        <v-icon>mdi-cloud-download</v-icon>
+      </v-list-item-icon>
+      <v-list-item-subtitle>48%</v-list-item-subtitle>
+    </v-list-item>
+
+    <v-slider
+      v-model="time"
+      :max="6"
+      :tick-labels="labels"
+      class="mx-4"
+      ticks
+    ></v-slider>
+
+    <v-list class="transparent">
+      <v-list-item
+        v-for="item in forecast"
+        :key="item.day"
+      >
+        <v-list-item-title>{{ item.day }}</v-list-item-title>
+
+        <v-list-item-icon>
+          <v-icon>{{ item.icon }}</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-subtitle class="text-right">
+          {{ item.temp }}
+        </v-list-item-subtitle>
+      </v-list-item>
+    </v-list>
+
+    <v-card-text>
+      <v-chip-group
+        v-model="selection"
+        active-class="deep-purple accent-4 white--text"
+        column
+      >
+        <v-chip>5:30PM</v-chip>
+
+        <v-chip>7:30PM</v-chip>
+
+        <v-chip>8:00PM</v-chip>
+
+        <v-chip>9:00PM</v-chip>
+      </v-chip-group>
+    </v-card-text>
+
+    <v-divider></v-divider>
+
+    <v-card-actions>
+      <v-btn text>
+        Full Report
+      </v-btn>
+    </v-card-actions>
+  </v-card>
 
     <!---
     <v-card>
@@ -107,6 +167,13 @@
 <script>
   export default {
     data: () => ({ 
+     labels: ['SU', 'MO', 'TU', 'WED', 'TH', 'FR', 'SA'],
+        time: 0,
+        forecast: [
+          { day: 'Tuesday', icon: 'mdi-white-balance-sunny', temp: '24\xB0/12\xB0' },
+          { day: 'Wednesday', icon: 'mdi-white-balance-sunny', temp: '22\xB0/14\xB0' },
+          { day: 'Thursday', icon: 'mdi-cloud', temp: '25\xB0/15\xB0' },
+        ],
       drawer: null,
       items: [
           { title: 'Dashboard', icon: 'mdi-view-dashboard' },
