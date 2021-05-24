@@ -45,16 +45,16 @@
     </v-app-bar>
 
     <v-main>
-        <v-card
+    <v-card
     class="mx-auto"
     max-width="400"
   >
     <v-list-item two-line>
       <v-list-item-content>
         <v-list-item-title class="headline">
-          San Francisco
+          Neuchâtel
         </v-list-item-title>
-        <v-list-item-subtitle>Mon, 12:30 PM, Mostly sunny</v-list-item-subtitle>
+        <v-list-item-subtitle>Lun, 12:30, partiellement ensoleilé</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
 
@@ -121,13 +121,13 @@
         active-class="deep-purple accent-4 white--text"
         column
       >
-        <v-chip>5:30PM</v-chip>
+        <v-chip>12:30</v-chip>
 
-        <v-chip>7:30PM</v-chip>
+        <v-chip>14:30</v-chip>
 
-        <v-chip>8:00PM</v-chip>
+        <v-chip>16:30</v-chip>
 
-        <v-chip>9:00PM</v-chip>
+        <v-chip>18:30</v-chip>
       </v-chip-group>
     </v-card-text>
 
@@ -135,31 +135,11 @@
 
     <v-card-actions>
       <v-btn text>
-        Full Report
+        Météo de la semaine
       </v-btn>
     </v-card-actions>
   </v-card>
 
-    <!---
-    <v-card>
-			<v-card-content>
-				<v-input-container class="v-block">
-					<label>Username</label>
-					<input ng-model="home.username" ng-required="true">
-				</v-input-container>
-				<v-input-container class="v-block">
-					<label>Password</label>
-					<input ng-model="home.password" type="password" ng-required="true">
-				</v-input-container>
-				<ng-messages for="home.error" role="alert" class="v-block">
-					<ng-message when="error">{{home.error.error}}</ng-message>
-				</ng-messages>
-			</v-card-content>
-			<v-card-actions layout="row" layout-align="end center">
-				<v-button type="submit" class="v-primary">Login</v-button>
-				<v-button type="submit">Create</v-button>
-			</v-card-actions>
-		</v-card> -->
     </v-main>
   </v-app>
 </template>
@@ -167,18 +147,18 @@
 <script>
   export default {
     data: () => ({ 
-     labels: ['SU', 'MO', 'TU', 'WED', 'TH', 'FR', 'SA'],
+     labels: ['LU', 'MA', 'ME', 'JE', 'VE', 'SA', 'DI'],
         time: 0,
         forecast: [
-          { day: 'Tuesday', icon: 'mdi-white-balance-sunny', temp: '24\xB0/12\xB0' },
-          { day: 'Wednesday', icon: 'mdi-white-balance-sunny', temp: '22\xB0/14\xB0' },
-          { day: 'Thursday', icon: 'mdi-cloud', temp: '25\xB0/15\xB0' },
+          { day: 'Mardi', icon: 'mdi-white-balance-sunny', temp: '24\xB0/12\xB0' },
+          { day: 'Mercredi', icon: 'mdi-white-balance-sunny', temp: '22\xB0/14\xB0' },
+          { day: 'Jeudi', icon: 'mdi-cloud', temp: '25\xB0/15\xB0' },
         ],
       drawer: null,
       items: [
           { title: 'Dashboard', icon: 'mdi-view-dashboard' },
           { title: 'Photos', icon: 'mdi-image' },
-          { title: 'About', icon: 'mdi-help-box' },
+          { title: 'A propos', icon: 'mdi-help-box' },
         ],
       }),
   }
